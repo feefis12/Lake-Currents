@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '+p++ht@f3283gyr+frggz6_(8qt6e#0pvjj0=f==_&28o8)mpq'
+SECRET_KEY = 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -139,18 +139,18 @@ STATICFILES_DIRS = [
 STATIC_FILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST = 
 EMAIL_PORT = '587'
-EMAIL_HOST_USER = 'lakecurrents@gmail.com'
-EMAIL_HOST_PASSWORD = 'wbxknzjfvbgzwcvi'
+EMAIL_HOST_USER = 
+EMAIL_HOST_PASSWORD = 
 EMAIL_USE_TLS = True
 
 
-AWS_ACCESS_KEY_ID = 'AKIA5S2AQRYVV3OG4WHN'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'lake-affected-storage'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+AWS_ACCESS_KEY_ID = 
+AWS_SECRET_ACCESS_KEY = 
+AWS_STORAGE_BUCKET_NAME = 
+AWS_S3_CUSTOM_DOMAIN = 
+AWS_S3_OBJECT_PARAMETERS = 
 AWS_DEFAULT_ACL = 'public-read'
 
 DEFAULT_FILE_STORAGE = 'events.storages.MediaStore'
