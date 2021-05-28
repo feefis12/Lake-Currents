@@ -1,0 +1,298 @@
+{% extends 'events/base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<style>
+    @font-face {
+
+        font-family: 'stat';
+        src: url('{% static 'fonts/ro.ttf' %}') format("truetype");
+    }
+
+    @font-face {
+
+        font-family: 'kiki';
+        src: url('{% static 'fonts/aver1.otf' %}') format("opentype");
+    }
+
+
+
+    @media only screen and (max-width: 600px) {
+        #scroll {
+            display: none;
+        }
+
+        #m-r {
+            display: none;
+        }
+    }
+
+    #prof {
+        font-weight: bolder;
+        font-family: stat;
+        font-size: 35px;
+        /* text-shadow: 2px 2px 4px #000000; */
+        /* margin-top: 10px; */
+        margin-left: -12px;
+        margin-right: -12px;
+        /* font-style: italic; */
+        color: white;
+        /* background-color: #868378; */
+        justify-content: left;
+        text-shadow: 2px 2px 3px #363636;
+        /* text-shadow: 1px 1px 3px #000000; */
+    }
+
+    #prof2 {
+        font-weight: bolder;
+        font-family: stat;
+        font-size: 35px;
+        /* text-shadow: 2px 2px 4px #000000; */
+        /* margin-top: 10px; */
+        margin-left: -12px;
+        margin-right: -12px;
+        /* font-style: italic; */
+        color: white;
+        /* background-color: #868378; */
+        justify-content: center;
+        text-shadow: 2px 2px 3px #363636;
+        /* text-shadow: 1px 1px 3px #000000; */
+    }
+
+    #prof3 {
+        font-weight: bolder;
+        font-family: stat;
+        font-size: 35px;
+        /* text-shadow: 2px 2px 4px #000000; */
+        /* margin-top: 10px; */
+
+
+        /* font-style: italic; */
+        color: white;
+        /* background-color: #868378; */
+        justify-content: center;
+        text-shadow: 2px 2px 3px #363636;
+        /* text-shadow: 1px 1px 3px #000000; */
+    }
+
+    /* #gall {
+        padding: 0px;
+        margin: 0px;
+        object-fit: contain;
+        
+    } */
+
+    #icons {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    #frame {
+        width: 100vh;
+        height: 50vh;
+    }
+
+    #icon:hover {
+
+        transform: scale(1.1);
+        shape-rendering: crispEdges;
+    }
+
+    #prof-in {
+        color: white;
+        font-size: 21px;
+        font-family: kiki;
+
+    }
+
+    #scroll {
+        height: 50vh;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    #title {
+        font-weight: bolder;
+        font-family: stat;
+        font-size: 35px;
+        color: white;
+        padding-top: 10px;
+        text-shadow: 2px 2px 4px #000000;
+    }
+
+    #cover {
+        height: 50%;
+        background-image: url("{% static 'images/test2.jpg'%}");
+        background-repeat: repeat;
+       
+    }
+
+    .container {
+        position: relative;
+        transition: all .2s;
+        max-width: 600px;
+    }
+
+
+
+    .caption {
+        position: absolute;
+        max-width: 350px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+        font-family: kiki;
+        color: white;
+        font-weight: bolder;
+        opacity: 0;
+       
+        transition: .5s ease;
+        
+    }
+
+    .container:hover .caption
+    {
+        opacity: 1;
+    }
+
+    
+    #sub-title {
+        color: white;
+        font-family: kiki;
+    }
+
+    #quote
+    {
+        box-shadow:1px 1px 6px #000000;
+    }
+
+</style>
+</br>
+</br>
+</br>
+<div class="row">
+
+    <div class="col-md-6 mx-auto text-center">
+        <p id="title" class=> Monthly Artist Interview
+
+        </p>
+        <p id="sub-title"> May 2021 Edition
+            <img src="{% static 'buttons/link.png' %}" style="width:20 px; height: 20px; padding-bottom: 5px; padding-left: 5px;">
+        </p>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-6 mx-auto text-center " style="padding-bottom: 20px">
+        <div class="container">
+            <img src="{% static 'images/test2.jpg'%}" class="img-fluid animate__animated animate__zoomIn" id="quote"
+                style=" height: 400px; background-repeat: repeat; padding:0px;">
+            <div class="caption">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam congue fringilla feugiat.
+                In varius malesuada ante, in luctus orci auctor eget. Aenean pellentesque aliquet risus, ut gravida arcu
+                convallis nec." </div>
+               
+        </div>
+    </div>
+
+   
+</div>
+
+<div class="row" style="">
+
+    <div class="col-md-6 mx-auto text-center">
+        <p id="prof" class="border" style="border-radius: 10px;">  Artist Profile</p>
+        <p id="prof-in"> Name: Half-Speed</p>
+        <p id="prof-in"> Genre: Lofi-hiphop</p>
+        <p id="prof-in" style="padding-left: 2%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+            bibendum luctus mauris in hendrerit. Integer
+            vehicula erat a ipsum imperdiet, nec finibus arcu varius. Etiam augue sapien, tincidunt sed consequat vitae,
+            dignissim eu metus. Cras et dui id turpis condimentum elementum nec vitae magna. Nullam tempor lacinia
+            tortor eget rhoncus. Mauris nec metus a nulla ultrices placerat id in turpis. Ut eget efficitur nibh. Morbi
+            facilisis elementum nibh, vel sodales sem porttitor vel. Duis lectus felis, efficitur quis ipsum nec,
+            imperdiet hendrerit diam. Duis lacinia arcu ligula, eget pulvinar metus commodo in. Duis dapibus condimentum
+            orci sit amet bibendum. Quisque imperdiet, ex eu vestibulum dictum, turpis dui imperdiet lorem, ut vehicula
+            nisi dolor vitae lacus.
+        </p>
+        <p> </p>
+        <div class="col-md-12 text-center border border-light  " id="icons"
+            style="border-color: black; border-radius: 25px; padding: 10px;">
+            <a href="{{b.twitterLink}}" id="link">
+                <img src="{% static 'icons/twitter1.png' %}" id="icon" style="width:40x; height:40px">
+            </a>
+            <a href="{{b.instaLink}}" id="link">
+                <img src="{% static 'icons/instagram1.png' %}" id="icon" style="width:40x; height:40px">
+            </a>
+            <a href="{{b.bandcampLink}}" id="link">
+                <img src="{% static 'icons/bc1.png' %}" id="icon" style="width:40x; height:40px">
+            </a>
+            <a href="{{b.soundcloudLink}}" id="link">
+                <img src="{% static 'icons/sc1.png' %}" id="icon" style="width:40x; height:40px">
+            </a>
+
+            <!-- <a href="{{b.audiusLink}}" id="link">
+  <img src="{% static 'icons/audius.png' %}" id="icon" style="width:50x; height:50px">
+</a> -->
+
+        </div>
+        <!-- <iframe style="border: 0; width: 100%; height: 42px;"
+            src="https://bandcamp.com/EmbeddedPlayer/album=3890114343/size=small/bgcol=333333/linkcol=0f91ff/transparent=true/"
+            seamless><a href="https://halfspeed.bandcamp.com/album/please-hold">Please Hold by Halfspeed</a></iframe>
+        <iframe style="border: 0; width: 100%; height: 42px;"
+            src="https://bandcamp.com/EmbeddedPlayer/album=4253441526/size=small/bgcol=333333/linkcol=0f91ff/transparent=true/"
+            seamless><a href="https://halfspeed.bandcamp.com/album/slow-burn">Slow Burn by Halfspeed</a></iframe>
+
+        <iframe style="border: 0; width: 100%; height: 42px;"
+            src="https://bandcamp.com/EmbeddedPlayer/album=3890114343/size=small/bgcol=ffffff/linkcol=0687f5/track=2154185557/transparent=true/"
+            seamless><a href="https://halfspeed.bandcamp.com/album/please-hold">Please Hold by Halfspeed</a></iframe>
+        -->
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-6 mx-auto" style="padding: 0px; object-fit: cover; margin-top: 0px; "> 
+            <p id="prof2" class='text-center border ' style="border-radius: 10px;"> Interview</p>
+            <!-- <iframe src="https://www.youtube.com/embed/V6uICG2F6Gc" id="frame" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe> -->
+
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mx-auto text-center" style="" id="scroll">
+            <p id="prof3" class=" border border-right"> Gallery</p>
+            <img src="{% static 'images/test.jpg'%}" id="gall" class="img-fluid">
+            <img src="{% static 'images/test2.jpg'%}" id="gall" class="img-fluid">
+            <img src="{% static 'images/test3.jpg'%}" id="gall" class="img-fluid">
+        </div>
+    </div>
+
+    <!-- 
+        </div>
+        <div class="col-md-2 " style="padding: 0px;">
+            <img src="{% static 'images/test3.jpg'%}" id="gall" class="img-fluid">
+
+        </div>
+
+        <div class="col-md-2 " style="padding: 0px;">
+            <img src="{% static 'images/test2.jpg'%}" id="gall" class="img-fluid"> -->
+
+</div>
+
+
+
+</div>
+
+
+
+{% include 'events/footer.html' %}
+{% endblock %}

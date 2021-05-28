@@ -1,0 +1,344 @@
+{% extends 'events/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+<style>
+  @font-face {
+
+    font-family: 'stat';
+    src: url('{% static 'fonts/ro.ttf' %}') format("truetype");
+  }
+
+  @media only screen and (max-width: 600px) {
+    .container1
+    {
+      
+      background-image: url("{% static 'images/back500.png'%}");
+    }
+  }
+
+  .head {
+    font-family: stat;
+    font-size: x-large;
+    color: white;
+    background-color: rgb(51, 51, 50);
+  }
+
+  .head:hover {}
+
+  .card
+  {
+    border: 0px;
+    background: rgba(0, 0, 0.5, 0.3);
+    color: white;
+    font-weight: 200;
+    
+  
+   
+  }
+
+  .card .card-body
+  {
+    opacity: 80%;
+    
+  }
+
+  .container
+  {
+    position: relative;
+    text-align: left;
+    padding: 0px;
+    padding-bottom: 0px;
+    font-size: 0px;
+    
+  }
+
+  .type
+  {
+    position: absolute;
+  bottom: 0px;
+  left: 25px;
+  padding:0;
+  padding-bottom: 0px;
+  font-weight: bolder;
+  color: white;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  pointer-events: none;
+  
+  }
+  
+
+  .a:hover {text-decoration: none;}
+
+  .card > .card-img-top:hover
+  {
+    filter: brightness(75%);
+  }
+
+  .card-img-top:hover
+  {
+    filter: brightness(75%);
+  }
+
+
+  .container1
+    {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      height:150px;
+      background-color:transparent;
+      padding-bottom: 0;
+      font-size: 0px;
+      background-image: url("{% static 'images/backer.png'%}");
+      margin-top: 60px;
+      box-shadow:1px 1px 4px #000000;
+    }
+    .box
+    {
+    background-image: url("{% static 'images/f1.png'%}");
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+    grid-column-start: 4;
+    opacity: 0.9;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    z-index: 1;
+    
+    padding-top: 0px;
+    }
+
+    #footer
+{
+  padding:  20px;
+  position: absolute;
+  background:  #4e5245;
+ bottom: 0;
+ width: 100%;
+  
+}
+
+
+    .left-content
+    {
+    background-image: url("{% static 'images/h4.png'%}");
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center ;
+    grid-column-start: 4;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    z-index: 4;
+    width: 1fr;
+    
+    }
+
+    
+    .btn {
+      border-style: outset;
+}
+
+
+    #event-title
+    {
+      text-shadow: 2px 2px 4px #000000;
+    
+    }
+
+    #twitter
+    {
+     text-align: center;
+     position: relative;
+     width: 20px;
+     height: 20px;
+    }
+
+    #typetag:hover
+    {
+      opacity: .5;
+    }
+
+    #week
+    {
+      opacity: .8;
+      
+    }
+
+    .card-img-top
+  {
+    transition: all .2s !important;
+  }
+
+  #zzz
+  {
+    display: none;
+  }
+
+  .container1:hover
+    {
+      filter: brightness(120%);
+    }
+
+ 
+}
+</style>
+
+
+<!-- <div class="embed-responsive embed-responsive-16by9 text-justify  py-4 px-5 px-sm-3 bg-light mx-auto" style="background-image: url('{% static 'images/ggga.gif' %}' )"  > -->
+<!-- <div class="col text-center">
+  <div>
+  </div>
+  <p></p>
+  <iframe width="420" height="315" src="{{v.vidlink}}" title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+  <p class="head">Latest:</p>
+</div> -->
+
+<a href="https://www.youtube.com/channel/UCGYUEmkgMxEcCtnbmSLVxOg" target="_blank">
+  <div class="container1">
+    <div class="box"></div>
+
+     <div class="left-content animate__animated animate__bounceInLeft" > </div>
+     
+     
+     <div class= "bottom-content text-center" style="margin: 0px;">"Lake Affected is uncovering Chicago's new sound...without an algorithm"</div>
+  </div>
+</a>
+
+<p></p>
+
+<div class="text-center animate__animated animate__fadeIn" id="zzz">
+  <img src="{% static 'icons/zzz.gif' %} ">
+  <p style="color:white"> No events today. See the full week &#128064</p>
+</div>
+{% for event in event_list %}
+<!-- <link href= "{% static '/css/style.css' %}" rel="stylesheet"> -->
+</br>
+
+  <div class="card mx-auto text-center shadow border border-dark align-self-center" id="main-body" style="max-width: 900px; max-height: 34rem; border-radius: 2px;">
+    <a  href="{% url 'events:event_detail_view' slug=event.slug%}" class="">
+    <img src="{{ event.flyer.url }}" class="card-img-top" alt="..."  style="max-height: 200px; object-fit: cover; "/>
+  </a>
+  <div class= container>
+  <img src="{% static 'icons/typetag.png' %} " id="typetag" style="width: 80px; height: 20px; margin: 0px;" >
+  <div class="type" >{{event.category}}</div>
+  </div>
+    <div class="card-body">
+      <h5 class="card-title text-decoration-none " id="event-title" > {{event.name}} 
+        
+      </h5>
+      <p class="card-text">{{event.event_date}}</p>
+      <p class="card-text" id="location">{{event.location}}
+        <a data-toggle="tooltip" data-placement="top" id = "copy-button" title="Copy Address!">
+      <img src="{% static 'icons/copy2.png' %} " style="width: 18x; height: 18px;">
+        </a>
+    </p>
+   <a  href="{% url 'events:event_detail_view' slug=event.slug%}" class=""></a>
+   <a href="{% url 'events:event_detail_view' slug=event.slug%}" class="btn btn-outline-light " style="width:50%; border-radius: px;">Details</a>
+    </div>
+   
+   
+  </div>
+
+
+
+
+
+<!-- 
+<div class="card  text-black mb-4 mx-auto bg-dark" style="max-width: 55rem;
+ border-radius: 30px; border: none; ">
+  <div class="card-img"></div>
+  <div class="card text-center">
+    <div class="card-header">
+      Today
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"> {{event.name}} </h5>
+      <p class="card-text">{{event.event_date}}</p>
+      <p class="card-text">{{event.location}}</p>
+      <a href="{% url 'events:event_detail_view' slug=event.slug%}" class="btn btn-outline-dark">Details</a>
+
+    </div>
+  </div>
+</div> -->
+
+
+{%endfor%}
+</br>
+
+  <div class="col text-center" style="position: relative;">
+    <a href="/#" class="btn btn-outline-light mx-auto " id="week" style="width:40%">See Full Week</a>
+
+    </a>
+
+    
+  </div>
+  </br>
+
+</div>
+
+</div>
+
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip({ trigger: "hover" })
+})
+
+
+var main = document.querySelector("#main-body");
+
+if (main == undefined)
+{
+$("#zzz").css("display","block");
+}
+
+
+
+
+
+function Clipboard_CopyTo(value) {
+  var tempInput = document.createElement("input");
+  tempInput.value = value;
+  document.body.appendChild(tempInput);
+  tempInput.select();
+  document.execCommand("copy");
+  document.body.removeChild(tempInput);
+}
+
+const locations = document.querySelectorAll('#location');
+const copy = document.querySelectorAll('#copy-button');
+for (let i = 0; i < locations.length; i++) {
+    locations[i].addEventListener('click', e => {
+        {
+          Clipboard_CopyTo(locations[i].textContent)
+          $(copy).attr('data-bs-original-title','Copied!');
+          $(copy[i]).tooltip('show')
+          $(copy).attr('data-bs-original-title','Copy Address');
+
+        }
+    }
+)
+
+}
+  
+</script>
+
+
+{% endblock %}
+

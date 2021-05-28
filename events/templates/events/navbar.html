@@ -1,0 +1,181 @@
+{% load admin_urls %}
+{% load static %}
+<style>
+  @font-face {
+
+    font-family: 'stat';
+    src: url('{% static 'fonts/ro.ttf' %}') format("truetype");
+  }
+
+
+  .navbar {
+    background-color: #4e5245;
+    font-family: stat;
+    color: white;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 90;
+    border-top: 0;
+    font-size: larger;
+  }
+
+  .pic:hover {
+    transform: scale(1.5);
+  }
+
+  .pic
+  {
+    transition: transform .2s;
+  }
+
+  .nav-item>a:hover {
+    background-color: rgb(51, 51, 50);
+    color: white;
+  }
+
+  .nav-item>a {
+    color: white;
+  }
+
+  #bar {
+    background-color: #4e5245;
+
+  }
+
+  #bar-item {
+    color: white;
+  }
+
+  #bar-item:hover {
+    background-color: #232422;
+  }
+
+  .sticky
+  {
+    
+
+  }
+  
+  #one
+  {
+    margin-left: -15px;
+  }
+
+  @media only screen and (max-width: 600px) {
+   
+    #one
+    {
+      margin-left: 0px;
+    }
+    }
+  /* @media (max-width: 992px) {
+    .navbar-collapse {
+        position: fixed;
+        top: 50px;
+        left: 100px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+        width: 50%;
+        height: 100%;
+        background-color: #4e5245;
+    }
+
+    .navbar-collapse.collapsing {
+        left: -75%;
+        transition: height 0s ease;
+    }
+
+    .navbar-collapse.show {
+        left: 0;
+        transition: left 300ms ease-in-out;
+    }
+
+    .navbar-toggler.collapsed ~ .navbar-collapse {
+        transition: left 500ms ease-in-out;
+    }
+
+
+    .nav-item>a {
+    color: white;
+    font-size: x-large;
+  } */
+
+   
+}
+</style>
+<nav class="navbar navbar-expand-lg navbar-dark ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/#"><img src="{% static 'icons/ddd.png' %}" width="30px" height="30px" style="margin-left: 5px; padding-right: 0px;"
+        class="pic d-inline-block align-left" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/#" id='one' style="">
+          <img src="{% static 'icons/event.png' %}" style="width: 20px; height: 20px; "> Events</a>
+
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/blog">
+            <img src="{% static 'icons/paper.png' %}" style="width: 20px; height: 20px; margin-right: 5px;">Blog</a>
+        </li>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Submit
+          </a>
+
+          <ul class="dropdown-menu " id="bar" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" id="bar-item" href="/event-form" tabindex="-1">Submit Events</a></li>
+            <li><a class="dropdown-item" id="bar-item" href="/music-form">Submit Music
+           </a></li>
+
+
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Tap In
+          </a>
+          
+          <ul class="dropdown-menu " id="bar" aria-labelledby="navbarDropdown">
+            <!-- <li><a class="dropdown-item" id="bar-item" href="https://twitter.com/lake_affected" target="_blank" tabindex="-1">Twitter</a></li> -->
+            <!-- <li><a class="dropdown-item" id="bar-item" href="https://audius.co/lakeaffected" target="_blank" >Audius</a></li> -->
+            <li><a class="dropdown-item" id="bar-item" href="https://www.instagram.com/lake.currents/?hl=en" target="_blank" >Instagram</a></li>
+            <li><a class="dropdown-item" id="bar-item" href="https://www.youtube.com/channel/UCGYUEmkgMxEcCtnbmSLVxOg" target="_blank" >YouTube</a></li>
+            <li><a class="dropdown-item" id="bar-item" href="/discord-invite" >
+              <img src="{% static 'icons/lock.png' %}" alt="" style="width: 20px; height: 20px; margin-right: 5px;">Discord
+            </a></li>
+
+           <li><a class="dropdown-item" id="bar-item" href="/contact" > Contact</a></li>
+        </div>
+     
+        </li>
+        </ul>
+        </li>
+       
+      </ul>
+     
+     
+     </li>
+ 
+  </div>
+
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    <script>
+
+    </script>

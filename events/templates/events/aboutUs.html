@@ -1,0 +1,71 @@
+{% extends 'events/base.html' %}
+{% load static %}
+{% block content%}
+<style>
+  @font-face {
+  
+  font-family: 'kiki';
+  src: url('{% static 'fonts/brawl.otf' %}') format("opentype");
+  }
+
+  .h1{
+      font-family: stat;
+  }
+
+  .container
+  {
+      background-color: #1d1d1d;
+      border-radius: 18px;
+      font-family: kiki;
+  }
+
+  .p
+  {
+    font-family: kiki;
+    font-size: clamp(6px, 1vw, 20px); 
+  }
+
+
+</style>
+
+<div class="text-center">
+    <img src="{% static '/buttons/aboutusheader.png' %}" class="img-fluid" style="width: clamp(900px,70%,1200px);
+    height: clamp(30%,8vw,1200px);">
+  </div>
+
+<div class="container text-center text-white">
+</br>
+
+<p>
+    Lake Affected is a Chicago music/media center for locating and unveiling the hidden talents that exist within the city. 
+As big advocators of localism we wish more people would look to their local scenes to grow and support artists which drive the cultural movements in and outside the city they orignate from. 
+Our hope is to give people easier access and insight into the music and art web that spans the whole city. 
+We believe that thinking and engaging with art that is produced in the same region and time can open up wonderful relationships and interesting cultural movements that will last in the temporal internet age.
+Here in Chicago, we are all Lake Affected. 
+
+<p>
+  For any questions/improvements/collabs let us know at lakeaffectedrecords@gmail.com or dm us on any social media accounts!
+  
+  Wallets:
+</br>
+</br>
+BTC: 3Ei3hiG8f1DayJoRbMkmqYiwqcidXzUFKL
+ETH:  0x6E27C21dF36928D8F5144082382f4D8EEcb34Fb9
+AUDIO: 0xc8906bbe62e846205e01e5b7415223cf40be5f7d
+
+</p>
+
+
+</p>
+</br>
+
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

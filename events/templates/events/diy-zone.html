@@ -1,0 +1,40 @@
+{% extends 'events/base.html' %}
+{% load static %}
+{%block content%}
+
+
+<button id="zone">DIY ZONE</button>
+
+<script>
+
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
+const ctx = new AudioContext();
+
+let audio;
+
+fetch("{% static 'songs/itsliz.mp3' %}")
+.then(data => data.arrayBuffer())
+.then(arrayBuffer => ctx.decodeAudioData(arrayBuffer))
+.then(decodedAudio => 
+{
+    audio = decodedAudio;
+})
+
+var z = document.getElementById('zone');
+z.addEventListener("click", function()
+{
+    ctx.resume()
+    .then(()=> console.log(ctx.state));
+    const playSound = ctx.createBufferSource();
+    playSound.Buffer = audio;
+    playSound.connect(ctx.destination);
+    playSound.start(ctx.currentTime);
+    
+
+});
+
+</script>
+
+
+
+{%endblock%}

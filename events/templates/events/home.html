@@ -1,0 +1,185 @@
+{% extends 'events/base.html' %}
+{% load static %}
+{% block content %}
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+<div class="container">
+    <!-- <div class="col-lg-12 text-center">
+        <p>EVENTS COMING SOON</p>
+    </div> -->
+<style>
+    .img-fluid:hover{
+        filter: brightness(120%);
+    }
+
+    #modal-content
+    {   
+        background-image: "{% static 'images/backer.png' %}";
+    }
+
+    .img-fluid
+    {
+      width: clamp(300px,30vw,900px)
+    }
+
+</style>
+
+<style>
+.container1
+    {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      height:150px;
+      background-color:transparent;
+      padding-bottom: 0;
+      
+    }
+    .box
+    {
+    background-image: url("{% static 'images/fff.png'%}");
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+    grid-column-start: 4;
+    opacity: 0.9;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    z-index: 1;
+
+    }
+
+
+    .left-content
+    {
+    background-image: url("{% static 'images/h3.png'%}");
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center ;
+    grid-column-start: 4;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    z-index: 4;
+    width: 1fr;
+   
+    
+
+    }
+
+    .left-content:hover
+    {
+     filter: brightness(120%);
+     
+    }
+
+   
+    @media (max-width: 640px) 
+    {
+
+
+    }
+
+    
+</style>
+
+<div class="modal fade bd-example-modal-sm" id="submitted" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm ">
+    <div class="modal-content text-center bg-dark text-white" style="padding-top: 10px; padding:10px">
+      Email added! Thank you!
+    </div>
+  </div>
+</div>
+  
+
+
+
+<a href="https://www.youtube.com/channel/UCRHHD8s4OcerMk7Bu9rfoYw">
+  <div class="container1">
+    <div class="box"></div>
+  
+     <div class="left-content animate__animated animate__bounceInLeft" > </div>
+ 
+  </div>
+</a>
+
+<div class="container">
+    <div class="col-lg-12 text-center" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <a>
+            <img class="img-fluid" src="{% static 'images/arrow.gif' %}" alt="Headshot">
+        </a>
+    </div>
+</div>   
+  <!-- Modal -->
+  <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered ">
+      <div class="modal-content bg-transparent text-white ">
+        <div class="modal-header bg-dark" style="border-bottom: 0px;">
+          <h5 class="modal-title text-center " id="staticBackdropLabel">Coming Soon..</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center " >
+         
+            <form  action="" method="POST" >
+              {% if submitted %}
+              Your email has been added. Thank you.
+              {% else %}
+              {% csrf_token %}
+              
+              To get updated on the release of the Event Page </br>
+              Please enter your email.
+            <div class="a" style="padding: 20px">
+              {{form.as_p}}
+            </div>
+              <input type="submit" value="Submit" class="btn btn-secondary">
+              {%endif%}
+        
+      </div>
+    </div>
+
+    
+  </div>
+ 
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      
+
+
+
+      <script>
+        let win = window.location.search;
+
+        if (win != "?submitted=True")
+        {
+          $('#submitted').modal('hide');
+         
+          console.log(win);
+       
+        }
+
+        else
+        {
+          $('#submitted').modal('show');
+
+            setTimeout(function(){
+            $('#submitted').modal('hide');
+            },500);
+        }
+     
+        
+
+      </script>
+        
+<!-- <div class="col"
+    style="background: url('{% static 'images/landing-page.png' %}') width=100%">
+     -->
+</div>
+
+{% include 'events/footer.html' %}
+
+
+{% endblock %}

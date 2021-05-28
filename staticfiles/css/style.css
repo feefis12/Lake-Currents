@@ -1,0 +1,30 @@
+.text
+{
+    max-width:100rem;
+    padding-left: 15rem;
+    padding-top: 15rem;
+}
+
+.body {
+    border: 5px solid red;
+    }
+
+
+
+
+.title
+{
+    text-align: center;
+    font-family: 'Lexend', sans-serif;
+    font-size: 5rem;
+    
+
+}
+
+a {
+    text-decoration: none;
+}
+
+a, a:visited {
+    text-decoration: none;
+}

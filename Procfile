@@ -1,0 +1,1 @@
+web: gunicorn LakeAffectedBlog.wsgi --log-file -

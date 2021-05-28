@@ -1,0 +1,114 @@
+{% extends 'events/base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+@media only screen and (max-width: 600px) {
+  #header
+  {
+    visibility: hidden;
+  }
+}
+
+    @font-face {
+      
+      font-family: 'stat';
+      src: url('{% static 'fonts/ro.ttf' %}') format("truetype");
+      }
+              
+    #header
+      {
+        font-family: stat;
+    color: white;
+    background-image: url("{% static 'images/backer.png'%}");
+    margin-bottom: 10px;
+  box-shadow:1px 1px 4px #000000;
+  margin-top: 40px;
+  font-size: 0px;
+      }
+
+      .a
+      {
+       /* width: 100%;
+     
+      height: auto; */
+      }
+
+      .giffer:hover
+      {
+        filter: brightness(150%)
+
+      }
+      .container
+      {
+        box-shadow:1px 1px 4px #000000;
+      }
+
+</style>    
+
+
+<div class="modal fade bd-example-modal-sm" id="submitted" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm ">
+    <div class="modal-content text-center bg-dark text-white" style="padding-top: 10px; padding:10px">
+      Thank you for submitting music! We'll get back to you soon!
+    </br>
+    </div>
+  </div>
+</div>
+  
+
+<center id="b">
+<div class="text-center" id="header">
+  <img src="{% static '/buttons/submitmusic.png' %}" class="img-fluid" style="width: clamp(900px,70%,1200px);
+  height: clamp(30%,8vw,1200px); ;">
+</div>
+</br>
+<div class="container py-1 px-3 px-sm-1  text-justify" style="max-width: 25em; min-height: 350px;">
+  
+<form action="" method="POST">
+    {% if submitted %}
+
+    Thanks for submitting!
+
+    {% else %}
+    {% csrf_token %}
+   
+    {{form.as_p}}
+  </br>
+</br>
+</br>
+<input type="submit" value="Submit" class="btn btn-outline-light" style="width:50%;">
+    {%endif%}
+</form>
+</center>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+
+
+
+    <script>
+      let win = window.location.search;
+
+      if (win != "?submitted=True")
+      {
+        $('#submitted').modal('hide');
+       
+        console.log(win);
+     
+      }
+
+      else
+      {
+        $('#submitted').modal('show');
+      }
+   
+      
+
+    </script>
+
+
+{% endblock %}

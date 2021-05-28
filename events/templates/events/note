@@ -1,0 +1,126 @@
+<a href={{b.videoLink}} target="_blank" rel="noopener noreferrer">
+  <div class="card bg-dark text-white py-1 px-5 px-sm-3 bg-transparent  mx-auto " style=" width: 100%">
+
+    <img src="{{b.cover.url}}" class="card-img" id="darken" alt="...">
+
+    <div class="card-img-overlay">
+      <div class="col text-center">
+        <div class="container bg-dark  " style="opacity: 0.9; width: auto; border-radius: 20px;">
+          <h5 class="card-title">{{b.title}}</h5>
+          <p class="card-text">{{b.body}}
+            </br>
+            </br>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  </div>
+</a>
+
+
+{% extends 'events/base.html' %}
+{% load static %}
+{% block content%}
+<div class="text-center">
+  <img src="{% static '/buttons/blogheader.png' %}" class="img-fluid" style="width: clamp(900px,70%,1200px);
+  height: clamp(30%,8vw,1200px);">
+</div>
+
+{% for b in blog%}
+<style>
+  @font-face {
+
+    font-family: 'kiki';
+    src: url('{% static 'fonts/brawl.otf' %}') format("opentype");
+  }
+
+
+
+
+  #darken:hover {
+    filter: brightness(75%);
+  }
+
+  .card {
+    word-wrap: break-word;
+    font-family: kiki;
+    overflow: hidden;
+
+
+  }
+
+  .card-img {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+
+  }
+
+  .card-text {
+    font-size: clamp(6px, 1vw, 20px);
+    overflow: hidden;
+
+  }
+
+  .card-title {
+
+    font-size: clamp(6px, 1vw, 20px);
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+
+  }
+
+   
+  .img-center {
+  
+ 
+} 
+    
+    .row
+    {
+      display: flex;
+     margin: auto;
+    }
+
+    /* #contain
+    {
+      max-height: 300px;
+    }
+ */
+
+
+
+  @media (max-width: 640px) {
+    .card-text {
+      display: none;
+
+
+    }
+
+    .card-title {
+      display: none;
+
+    }
+
+    /* .col {
+      background-color: transparent;
+    } */
+
+
+    .border {
+      border-width: 10px;
+    }
+
+    .card-img {
+      height: 40vw;
+    }
+
+  
+
+  }
+</style>

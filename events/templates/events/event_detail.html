@@ -1,0 +1,268 @@
+{% extends 'events/base.html' %}
+{% load static %}
+
+{% block content %}
+<script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
+<style>
+  @font-face {
+
+    font-family: 'kiki';
+    src: url('{% static 'fonts/brawl.otf' %}') format("opentype");
+  }
+
+  .container {
+    font-family: kiki;
+    border-width: 10px;
+    color: white;
+    text-rendering: ;
+
+
+  }
+
+  .addeventatc {
+    visibility: hidden;
+  }
+
+  @font-face {
+
+    font-family: 'stat';
+    src: url('{% static 'fonts/ro.ttf' %}') format("truetype");
+  }
+
+  #title {
+    font-family: stat;
+    color: white;
+    padding-top: 10px;
+    text-shadow: 2px 2px 4px #000000;
+  }
+
+  #main {
+    background: rgba(0, 0, 0.5, 0.3);
+    border-color: black;
+    border-width: thick;
+  }
+
+  #google {
+    position: relative;
+
+
+  }
+
+  #uber {
+    position: relative;
+    text-align: center;
+    margin-left: 10px;
+
+
+  }
+
+  #CTA {
+    position: relative;
+    text-align: right;
+    margin-left: 10px;
+  }
+
+  #embed {
+    margin-left: -20x;
+  }
+
+  #bands {
+    font-family: stat;
+  }
+
+  #cat {
+    visibility: hidden;
+  }
+
+  #flyer {
+    background-color: #4e5245;
+    color: white;
+  }
+
+  #bod {
+    font-family: monospace;
+  }
+
+
+  .rainbow {
+    text-align: center;
+    text-decoration: underline;
+    font-size: 15px;
+
+  }
+
+  .rainbow_text_animated {
+    background: linear-gradient(to right, #6666ff, #0099ff, #00ff00, #ff3399, #6666ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    animation: rainbow_animation 8s ease-in-out infinite;
+    background-size: 400% 100%;
+  }
+
+  @keyframes rainbow_animation {
+
+    0%,
+    100% {
+      background-position: 0 0;
+    }
+
+    50% {
+      background-position: 100% 0;
+    }
+  }
+
+  #blox {
+    display: flex;
+    justify-content: center;
+  }
+
+  #cal {}
+</style>
+<!-- <link href= "{% static '/css/style.css' %}" rel="stylesheet"> -->
+<!-- <link rel="stylesheet" href="{% static 'css/theme8.css'%}" type="text/css" media="screen" /> -->
+</br>
+</br>
+</br>
+<div class="container py-6 px-6 px-sm-3 text-justify border-5 border-dark" id="main" style="max-width: 50rem;">
+  <h3 class="text-center mx-auto" id="title">{{event.name}} </h3>
+
+  <div class="container py-3 px-3 px-sm-1 text-justify"
+    style="max-width: 50rem; min-height: 250px; border-radius: 15px;">
+
+    <div class="col text-center">
+      <a href="{{event.fbLink}}">
+        <img id="pic" src="{{ event.flyer.url }}" data-href="{{ event.flyer.url }}" class='img-fluid' download="flyer"
+          style="width: 100%; height: 80%; margin-top: 10px; max-height: 600px;">
+
+      </a>
+      <a href="{{ event.flyer.url }}" data-toggle="tooltip" data-placement="top" id="" title="Save Flyer">
+        <img src="{% static 'icons/save.png' %} "
+          style="width:20px; height:20px; margin-top: 12px; margin-bottom: 12px;">
+      </a>
+
+
+      <figure class="text-center" id="bod">
+        {{event.description|linebreaks }}
+        <p class="text-center mx-auto" style="margin-right: ;"> {{event.event_date|date}} </p>
+        <hr style="width:50%; margin-left: 25%;" />
+        <p class="text-center mx-auto rainbow rainbow_text_animated" id="location"> {{event.location}}
+          <a data-toggle="tooltip" data-placement="top" id="copy-button" title="Copy Address">
+            <img src="{% static 'icons/copy2.png' %} " style="width: 18x; height: 18px;">
+          </a>
+        </p>
+        <hr style="width:50%; margin-left: 25%;" />
+        <div class="container border" style="padding-bottom: 10px; padding-top: 10px; border-radius: 20px;">
+          <p id=''>
+            How you getting there?
+          </p>
+
+          <a href="https://www.google.com/maps/search/?api=1&query={{event.location}}" target="_blank" id="google"
+            class=" btn btn-outline-light">
+            Google Maps
+          </a>
+
+          <a href="https://m.uber.com/ul/?client_id=<CLIENT_ID>&action=setPickup&pickup=my_location&dropoff[formatted_address]={{event.location}}"
+            target="_blank" id="uber" class=" btn btn-outline-light">
+            Uber
+          </a>
+        </div>
+
+
+
+
+
+    </div>
+    </br>
+
+
+    <div class="col text-center" id="bands">
+      Check out the music!
+      <hr />
+      </br>
+      <div id="embed">
+        {{event.musicLinks|safe}}
+      </div>
+    </div>
+    <p id="cat">{{event.category}}</p>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+      integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+      crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+      integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+      crossorigin="anonymous"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+
+
+    <script>
+
+      var cat = document.getElementById('cat')
+      var band = document.querySelectorAll('#bands')
+      if (cat.textContent != "Show") {
+        $("#bands").remove();
+        console.log(cat.textContent)
+      }
+
+
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip({ trigger: "hover" })
+      })
+
+
+
+      function Clipboard_CopyTo(value) {
+        var tempInput = document.createElement("input");
+        tempInput.value = value;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+      }
+
+      const locations = document.querySelectorAll('#location');
+      const copy = document.querySelectorAll('#copy-button');
+      for (let i = 0; i < locations.length; i++) {
+        locations[i].addEventListener('click', e => {
+          {
+            Clipboard_CopyTo(locations[i].textContent)
+            Clipboard_CopyTo(locations[i].textContent)
+            $(copy).attr('data-bs-original-title', 'Copied!');
+            $(copy[i]).tooltip('show')
+            $(copy).attr('data-bs-original-title', 'Copy Address');
+
+          }
+        }
+        )
+
+      }
+
+//     var dif = document.querySelector("#pic")
+//     function forceDownload(){
+//     var url = dif.getAttribute("data-href");
+//     var fileName = dif.getAttribute("download");
+//     dif.innerText = "Working...";
+//     var xhr = new XMLHttpRequest();
+//     xhr.open("GET", url, true);
+//     xhr.responseType = "blob";
+//     xhr.onload = function(){
+//         var urlCreator = window.URL || window.webkitURL;
+//         var imageUrl = urlCreator.createObjectURL(this.response);
+//         var tag = document.createElement('a');
+//         tag.href = imageUrl;
+//         tag.download = fileName;
+//         document.body.appendChild(tag);
+//         tag.click();
+//         document.body.removeChild(tag);
+//         dif.innerText="Download Image";
+//     }
+//     xhr.send();
+// }
+
+
+
+    </script>
+    {% endblock %}

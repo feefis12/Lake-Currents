@@ -1,0 +1,644 @@
+{% extends 'events/base.html' %}
+{% load static %}
+{% block content%}
+</br>
+</br>
+<div class=" text-center" id="header">
+  <img src="{% static '/buttons/blogheader4.png' %}" class="img-fluid" style="width: clamp(900px,70%,1200px);
+  height: clamp(50%,100%,1200px);">
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+<style>
+  @media only screen and (max-width: 768px) {
+    #header {
+      display: none;
+    }
+
+    #reff {
+      margin-bottom: 10px;
+      padding: 0px;
+      opacity: 1;
+    }
+
+    #too
+    {
+      display: none;
+    }
+    
+    #main2
+    {
+      display: none;
+    }
+  }
+
+  @font-face {
+
+    font-family: 'kiki';
+    src: url('{% static 'fonts/aver1.otf' %}') format("opentype");
+  }
+
+  @font-face {
+
+    font-family: 'stat';
+    src: url('{% static 'fonts/ro.ttf' %}') format("truetype");
+  }
+
+  #header {
+    background-image: url("{% static 'images/backer.png'%}");
+    margin-bottom: 10px;
+    padding-top: 15px;
+    box-shadow: 1px 1px 4px #000000;
+  }
+
+  #hide {
+    visibility: hidden;
+  }
+
+  .img-center {
+    margin-top: 10px;
+    height: 170px;
+    width: 100%;
+    object-fit: cover;
+    font-size: clamp(1.5rem, 2.5vw, 4rem);
+    filter: brightness(.9);
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 2px 2px 4px #000000;
+    text-decoration: white;
+    font-family: kiki;
+    font-weight: bolder;
+    background-blend-mode: darken;
+    transition: all .2s;
+    /* background:rgba(0,0,0,.25); */
+    
+
+
+
+  }
+
+  .img-center:hover {
+    filter: brightness(80%);
+  }
+
+  a,
+  a:hover,
+  a:focus,
+  a:active {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .row {
+    display: flex;
+    margin: auto;
+  }
+
+
+  .title {
+    z-index: 100;
+    position: relative;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+
+
+  }
+
+  .box {
+    position: relative;
+
+  }
+
+  #rec {
+    background-color: #4e5245;
+    /* border-radius: 5px; */
+    object-fit: fill;
+    color: white;
+    margin-bottom: 3.8%;
+    margin-top: .5%;
+    font-family: kiki;
+    font-size: 20px;
+
+
+
+
+  }
+
+  #main {
+    border-radius: 5px;
+    color: white;
+    border-right: 0px;
+    -webkit-transition: all 1s linear;
+    
+
+
+  }
+
+  #main:target {
+    background-color: #ffa;
+    -webkit-transition: all 1s linear;
+}
+
+
+  #rec-title {
+    font-family: stat;
+    /* text-shadow: 2px 2px 4px #000000; */
+    /* margin-top: 10px; */
+    margin-left: -12px;
+    margin-right: -12px;
+    /* font-style: italic; */
+    /* background-color: #868378; */
+    justify-content: center;
+    text-shadow: 2px 2px 3px #363636;
+    /* text-shadow: 1px 1px 3px #000000; */
+  }
+
+  #icons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+   
+
+
+
+  }
+
+  #favSong {
+    text-decoration: none;
+    font-weight: bolder;
+
+
+
+  }
+
+  #rec:hover {}
+
+  .thetitle {
+    position: relative;
+
+
+  }
+
+  .op-class {
+
+    cursor: default !important;
+    opacity: 0.5;
+    pointer-events: none;
+
+
+    /* cursor: default;
+    /* text-decoration:none; */
+  }
+
+  #icon:hover {
+
+    transform: scale(1.1);
+    shape-rendering:crispEdges;
+  }
+
+  #body {
+    font-family: kiki;
+    font-size: 20px;
+    font-weight: bolder;
+    /* background-color:rgba(59, 61, 54, 0.1); */
+    padding-right: .2%;
+    -webkit-font-smoothing: antialiased;
+
+  }
+
+  .bg-blue {
+
+    padding: 10%;
+    margin: -12px;
+  }
+
+  #SM {
+
+    box-shadow: #868378;
+  }
+
+  #icon {
+    transition: transform .2s;
+  
+  }
+
+  #aud:hover {
+
+    filter: brightness(120%);
+
+  }
+
+  #a-main {
+    padding: 0px;
+    margin: 0px;
+    height: 20%;
+
+
+  }
+
+  #a-left {
+    height: clamp(50%, 45%, 75px);
+    margin: 0px;
+    padding: 0px;
+  }
+
+  #tran:hover {
+    filter: brightness(75%);
+  }
+  
+  #tran
+  {
+    transition: all .2s;
+  }
+
+  #ran
+  {
+    transition: all .2s;
+  }
+
+
+  #ran:hover {
+    filter: brightness(75%);
+  }
+
+  #page-id {
+    display: none;
+  }
+
+
+
+  .box2
+  
+  {
+     border-radius: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    background-position: center;
+    -webkit-box-shadow:inset 0px 0px 0px 50px #4e5245;
+    -moz-box-shadow:inset 0px 0px 0px 10px  #4e5245;
+    box-shadow:inset 0px 0px 0px 10px  #4e5245;
+    border-radius: 8px;
+    
+  }
+
+ 
+  #back2
+  {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    font-family: stat;
+    padding-bottom: 50px;
+    color: white;
+    
+    /* border-radius: 5px;
+    color: white;
+    border-right: 0px;
+    font-family: stat;
+    font-style: italic;
+    -webkit-transition: all 1s linear;
+    -webkit-box-shadow:inset 0px 0px 0px 5px rgb(255, 255, 255);
+    -moz-box-shadow:inset 0px 0px 0px 5px  rgb(255, 255, 255);
+    box-shadow:inset 0px 0px 0px 5px rgb(255, 255, 255); */
+   
+    /* z-index: 1; */
+
+  }
+
+  .center-content
+  {
+    
+  }
+
+
+  #left-content
+  {
+    background-image: url("{% static 'icons/ex-month.png'%}");
+    
+    background-repeat: no-repeat;
+    background-size:contain;
+    /* background-position: center ; */
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    
+    width: 1fr;
+    margin-top: 
+   
+
+  }
+  
+  #left-content:hover
+  {
+  
+  }
+
+
+
+
+  #ex-sub
+  {
+    font-size: 5px;
+  }
+
+
+  
+  #contain
+  {
+
+  }
+
+  #main2:hover
+  {
+    filter: brightness(80%);
+  }
+  
+  #main2
+  {
+    transition: all .2s;
+    margin-left: 10%;
+    pointer-events: none;
+    
+  }
+  
+  
+
+  #rec:hover #reff
+  {
+    opacity:1;
+  }
+
+  #reff
+  {
+    opacity: 0;
+  }
+
+
+  
+ 
+  
+  
+</style>
+
+
+{% for e in eBlog%}
+<div class="container-fluid shadow" id="contain2" style="padding-top: 10px; " >
+  <div class="row" >
+    <a href="{% url 'events:exclusive_blog' slug=e.slug%}">
+    <div class="col-md-8" id="main2" style="text-align: center; padding-bottom: 30px; ">
+     
+      <div class="box2" style="background:#4e5245; border-radius: 5px;">
+          
+          <p class="img-center animate__animated animate__fadeIn" id="back2" style="padding-top: 60px;">
+            
+            Coming Soon!
+<!--         
+            May Exclusive: -->
+          </br>
+          
+            <!-- {{e.name}} -->
+             </p>
+       
+       
+        <!-- <img class="img-center img-responsive" src="{% static 'images/test.jpg' %}"> -->
+        
+        <div id="left-content" class="animate__animated animate__headShake animate__delay-2s "></div>
+        <div id="right-content" class="animate__animated animate__headShake"></div>
+      </div>
+     
+    </a>
+ 
+    </div>
+    <div class="col-md-2" id="too">
+      <iframe src="https://open.spotify.com/embed/playlist/0ve5oCnpJYVLbj6B0UHMkb" width="300" height="200" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+    <!-- <img src="{% static 'images/comp.gif' %}" style="width: 300px; height: 200px;"> -->
+
+{% endfor %}
+{% for b in blog%}
+<div class="container-fluid shadow  " id="contain" > 
+  <div class="row " id={{b.page}}>
+    <!-- <div class="col-md-1" id="rec"></div> -->
+    <div class="col-md-9 border-right-0 border-dark  " id="main" style="text-align: center; ">
+      <div class="box animate__animated animate__backInLeft">
+        <a href={{b.videoLink}} target="_blank">
+          <p class="img-center   " id="back" style="background-image: url({{b.cover.url}}); border-radius: 5px;">
+
+            {{b.title}}</p>
+        </a>
+        <!-- <img class="img-center img-responsive" src="{% static 'images/test.jpg' %}"> -->
+        <div class=" text-center" id="body">
+          <p> {{b.body|safe}}</p>
+        </div>
+      </div>
+    </div>
+   
+    <div class="col-md-3 border border-dark animate__animated animate__backInRight" id="rec" >
+      <p class="text-center  " id="rec-title">
+        <img src="{% static 'buttons/link.png' %}"  class="idcopy" id="reff" data-toggle="tooltip" data-placement="top" title="Link this post!"
+          style="width:20px; height:20px; margin-top: 6px; float: left; margin-left: 10px;"> Recommended
+      </p>
+      <p></p>Our Favorite Songs: <a href="{{b.favSongUrl}}" target="_blank" id="favSong" data-toggle="tooltip"
+        title="Check it out!">
+        {{b.favSongTitle}}<a href="{{b.favSongUrl2}}" target="_blank" id="favSong" data-toggle="tooltip"
+          title="Check it out!">
+          {{b.favSongTitle2}}<a href="{{b.favSongUrl3}}" target="_blank" id="favSong" data-toggle="tooltip"
+            title="Check it out!">
+            {{b.favSongTitle3}}
+          </a>
+
+          </p>
+          <p>Similar artists: {{b.relatedArtist}}
+            <div class="row text-center " id="SM">
+              <div class="col-md-8 text-center border border-light " id="icons"
+                style="border-color: black; border-radius: 25px; padding: 10px;">
+                <a href="{{b.twitterLink}}" id="link">
+                  <img src="{% static 'icons/twitter1.png' %}" id="icon" style="width:40x; height:40px">
+                </a>
+                <a href="{{b.instaLink}}" id="link">
+                  <img src="{% static 'icons/instagram1.png' %}" id="icon" style="width:40x; height:40px">
+                </a>
+                <a href="{{b.bandcampLink}}" id="link">
+                  <img src="{% static 'icons/bc1.png' %}" id="icon" style="width:40x; height:40px">
+                </a>
+                <a href="{{b.soundcloudLink}}" id="link">
+                  <img src="{% static 'icons/sc1.png' %}" id="icon" style="width:40x; height:40px">
+                </a>
+                <!-- <a href="{{b.audiusLink}}" id="link">
+          <img src="{% static 'icons/audius.png' %}" id="icon" style="width:50x; height:50px">
+        </a> -->
+
+              </div>
+              <div class="col-md" style="padding-top: 0px;">
+                <p id="page-id">https://www.lakecurrents.co/blog#{{b.page}}</p>
+
+              </div>
+            </div>
+
+
+    </div>
+
+
+
+  </div>
+
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+  integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<script>
+
+// var twit = document.querySelectorAll("#main");
+
+//    $(this).attr("target","_blank");
+
+
+
+  // $(function () {
+  //   $('img').tooltip()
+    
+  
+  // })
+
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip({ trigger: "hover" })
+})
+
+  
+
+  
+
+//   $('.idcopy').on('click', function() {
+//   toggleToolTip.call(this, "Link this post!", "Tooltip Changed");
+// });
+  
+// function toggleToolTip(originalTitle, newTitle) {
+//   var lastTitle = $(this).attr('data-original-title');
+//   $(this).attr('data-original-title',lastTitle === originalTitle ? newTitle : originalTitle);
+//   $(this).tooltip("show");
+// }
+  // var title = document.querySelectorAll("#favSong")
+
+  // for (let i =0; i <tite.length;i++)
+  // {
+  //   if (title[i].href == "") 
+  //   {
+  //     title[i].remove();
+  //   }
+  // }
+
+    
+
+
+  var twit = document.querySelectorAll("#link");
+  var ic = document.querySelectorAll('#icon');
+  var ics = document.querySelector('#icons');
+
+  for (let i = 0; i < twit.length; i++) {
+    if (twit[i].host == "www.lakecurrents.co") {
+      ic[i].classList.add("op-class");
+      twit[i].classList.add("op-class");
+
+
+
+
+
+
+    }
+
+  }
+
+  function Clipboard_CopyTo(value) {
+    var tempInput = document.createElement("input");
+    tempInput.value = value;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+  }
+
+  var locations = document.querySelectorAll('#page-id');
+  var button = document.querySelectorAll('#reff');
+for (let i = 0; i < button.length; i++) {
+    button[i].addEventListener('click', e => {
+        {
+          Clipboard_CopyTo(locations[i].textContent)
+          $(button).attr('data-bs-original-title','Copied!');
+          $(button[i]).tooltip('show')
+          $(button).attr('data-bs-original-title','Link this post');
+        }
+    }
+)
+
+}
+
+</script>
+
+
+
+
+
+
+<!-- <a href={{b.videoLink}} target="_blank" rel="noopener noreferrer">
+//   <div class="card bg-dark text-white  " style=" width: 100%">
+//     <img src="{{b.cover.url}}" class="card-img" id="darken" alt="...">
+//     <div class="card-img-overlay">
+//       <div class="col text-center">
+//         <div class="container bg-dark  " style="opacity: 0.9; width: auto; border-radius: 20px;">
+//           <h5 class="card-title">{{b.title}}</h5>
+//           <p class="card-text">{{b.body}}
+//             </br>
+//             </br>
+//           </p>
+//         </div>
+
+//       </div>
+//     </div>
+
+//   </div>
+
+//   </div>
+// </a> -->
+{% endfor %}
+
+<div class="col text-center">
+  <a href="/full-blog" class="btn btn-outline-light mx-auto" id="week" style="width:40%; margin-top: 20px;" >See Next 25 Posts</a>
+
+  </a>
+
+
+</div>
+
+<div class="container-fluid" id="a-main">
+
+  <div class="row">
+    <div class="col-sm" id="a-left">
+      <a href="">
+        <img src="{% static 'buttons/Audius.png'%}" class="img-fluid animate__animated animate__fadeIn" id="tran">
+      </a>
+    </div>
+    <div class="col-sm" id="a-left">
+      <a href="https://open.spotify.com/playlist/0ve5oCnpJYVLbj6B0UHMkb?si=e2042a2c0dfa40f3">
+        <img src="{% static 'buttons/spotify.png'%}" class="img-fluid animate__animated animate__fadeIn" id="ran">
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm text-center  " style="font-family: stat; color: white; font-size: x-large;  opacity: .4;">
+
+    </div>
+  </div>
+</div>
+
+{% include 'events/footer.html' %}
+{% endblock %}

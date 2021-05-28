@@ -1,0 +1,85 @@
+{% extends 'events/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<style>
+
+@font-face {
+  
+  font-family: 'stat';
+  src: url('{% static 'fonts/ro.ttf' %}') format("truetype");
+  }
+          
+  .head
+  {
+    font-family: stat;
+    font-size: x-large;
+    color: white;
+    background-color: rgb(51, 51, 50);
+  }
+
+  .head:hover
+  {
+    
+  }
+</style>
+
+    {%for v in vid%}
+    <!-- <div class="embed-responsive embed-responsive-16by9 text-justify  py-4 px-5 px-sm-3 bg-light mx-auto" style="background-image: url('{% static 'images/ggga.gif' %}' )"  > -->
+      <div class="col text-center">
+      <div>
+              <!-- <link href= "{% static '/css/stylesheet' %}" rel="stylesheet"> -->
+              <!-- <p class="head">Latest: </p> -->
+          </div>
+          <p></p>
+      <iframe width="420" height="315" src="{{v.vidlink}}" title="YouTube video player" frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <p class="head">Latest:</p>
+    </div>
+
+  
+  
+  {%endfor%}
+
+    {% for event in event_list %}
+     <!-- <link href= "{% static '/css/style.css' %}" rel="stylesheet"> -->
+     </br>
+     
+<div class="card  text-black mb-4 mx-auto bg-dark" style="max-width: 55rem;
+ border-radius: 30px; border: none; ">
+ <div class= "card-img"></div>
+<div class="card text-center">
+  <div class="card-header">
+      Today
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"> {{event.name}} </h5>
+    <p class="card-text">{{event.event_date}}</p>
+    <p class="card-text">{{event.location}}</p>
+    <a href="{% url 'events:event_detail_view' slug=event.slug%}" class="btn btn-outline-dark">Details</a>
+    
+</div>
+</div>
+</div>
+
+
+  {%endfor%}
+  <div class="embed-responsive embed-responsive-16by9 col-xs-12 text-center  py-4 px-5 px-sm-5 bg-light" style="background-image: url('{% static 'images/backer.png' %}') " >
+    <div class="col text-center">
+      <a href="/fullWeek" class="btn btn-dark mx-auto">See Full Week</a>
+     
+      </a>
+     
+    
+      </div>
+    </br>
+     
+  </div>
+ 
+  
+  </div>
+ 
+  </div>
+{% endblock %}

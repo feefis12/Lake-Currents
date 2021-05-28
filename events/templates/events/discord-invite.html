@@ -1,0 +1,94 @@
+{% extends 'events/base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+  @media only screen and (max-width: 600px) {
+    #header
+    {
+      visibility: hidden;
+    }
+  }
+  
+  @font-face {
+  
+  font-family: 'stat';
+  src: url('{% static 'fonts/ro.ttf' %}') format("truetype");
+  }
+  
+  
+  #main
+  {
+      background: rgba(0, 0, 0.5, 0.3);
+      box-shadow:1px 1px 4px #000000;
+      border: whitesmoke;
+  }
+  
+  #header
+  {
+      font-family: stat;
+      color: white;
+      background-image: url("{% static 'images/backer.png'%}");
+      margin-bottom: 10px;
+      margin-top: 50px;
+    box-shadow:1px 1px 4px #000000;
+  }
+  </style>
+  <center>
+  <div class="text-center" id="header">
+      <img src="{% static '/buttons/invite.png' %}" class="img-fluid" style="width: clamp(900px,70%,1200px);
+      height: clamp(30%,8vw,1200px);">
+    </div>
+    
+  </br>
+
+
+<div class="modal fade bd-example-modal-sm" id="submitted" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm ">
+      <div class="modal-content text-center bg-dark text-white" style="padding-top: 10px; padding:10px">
+        Thank you! The invitation will be sent shortly!
+      </br>
+      </div>
+    </div>
+  </div>
+  
+
+<div class="container py-3 px-3 px-sm-1 bg-transparent text-justify"  id="main" style="max-width: 50rem; min-height: 250px; border-radius: 15px;">
+  <form action="" method="POST">
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" value="Submit" class="btn btn-outline-light" style="width: 70%;"> 
+     
+  </form>
+  </center>
+  </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+
+
+
+    <script>
+      let win = window.location.search;
+
+      if (win != "?submitted=True")
+      {
+        $('#submitted').modal('hide');
+       
+        console.log(win);
+     
+      }
+
+      else
+      {
+        $('#submitted').modal('show');
+      }
+   
+      
+
+    </script>
+{% endblock %}
