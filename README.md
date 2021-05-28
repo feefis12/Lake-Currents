@@ -9,6 +9,8 @@ Blog:
 Entries contain short 3-4 sentences reviews describing the music as well as a panel for showing off artist social links and providing recommendations
 Images lead to Youtube with hosted videos.
 
+Exlusive blog contains an extened article-style page with more details on the artists featured.
+
 ![gg](https://user-images.githubusercontent.com/65625146/119913506-b36da500-bf23-11eb-9010-1aee66356088.JPG)
 
 
